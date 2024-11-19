@@ -477,89 +477,12 @@ public class NewJframecalc extends javax.swing.JFrame {
     }//GEN-LAST:event_EQUALSActionPerformed
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
-        if (num1 == "" || num1 == ".") {
-            num1 = screentext;
-            screentext = "";
-            screen.setText(screentext);
-        } else {
-            switch (op) {
-                case "+": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 + numb2;
-                    break;
-                }
-                case "-": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 - numb2;
-                    break;
-                }
-                case "/": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 / numb2;
-                    break;
-                }
-                case "*": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 * numb2;
-                    break;
-                }
-            }
-            num1 = String.valueOf(ans);
-            screen.setText(String.valueOf(ans));
-            screentext = "";
-        }
-
+        calc();
         op = "+";
     }//GEN-LAST:event_ADDActionPerformed
 
     private void MINUSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MINUSActionPerformed
-        if (num1 == "" || num1 == ".") {
-            num1 = screentext;
-            screentext = "";
-            screen.setText(screentext);
-        } else {
-            switch (op) {
-                case "+": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 + numb2;
-                    break;
-                }
-                case "-": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 - numb2;
-                    break;
-                }
-                case "/": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 / numb2;
-                    break;
-                }
-                case "*": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 * numb2;
-                    break;
-                }
-            }
-            num1 = String.valueOf(ans);
-            screen.setText(String.valueOf(ans));
-            screentext = "";
-        }
+calc();
         op = "-";
     }//GEN-LAST:event_MINUSActionPerformed
 
@@ -577,88 +500,12 @@ public class NewJframecalc extends javax.swing.JFrame {
     }//GEN-LAST:event_BSActionPerformed
 
     private void PRODUCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRODUCTActionPerformed
-        if (num1 == "" || num1 == ".") {
-            num1 = screentext;
-            screentext = "";
-            screen.setText(screentext);
-        } else {
-            switch (op) {
-                case "+": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 + numb2;
-                    break;
-                }
-                case "-": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 - numb2;
-                    break;
-                }
-                case "/": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 / numb2;
-                    break;
-                }
-                case "*": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 * numb2;
-                    break;
-                }
-            }
-            num1 = String.valueOf(ans);
-            screen.setText(String.valueOf(ans));
-            screentext = "";
-        }
+calc();
         op = "*";        // TODO add your handling code here:
     }//GEN-LAST:event_PRODUCTActionPerformed
 
     private void DIVIDEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DIVIDEActionPerformed
-        if (num1 == "" || num1 == ".") {
-            num1 = screentext;
-            screentext = "";
-            screen.setText(screentext);
-        } else {
-            switch (op) {
-                case "+": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 + numb2;
-                    break;
-                }
-                case "-": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 - numb2;
-                    break;
-                }
-                case "/": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 / numb2;
-                    break;
-                }
-                case "*": {
-                    num2 = screen.getText();
-                    numb1 = Double.parseDouble(num1);
-                    numb2 = Double.parseDouble(num2);
-                    ans = numb1 * numb2;
-                    break;
-                }
-            }
-            num1 = String.valueOf(ans);
-            screen.setText(String.valueOf(ans));
-            screentext = "";
-        }
+calc();
         op = "/";        // TODO add your handling code here:
     }//GEN-LAST:event_DIVIDEActionPerformed
 
@@ -672,6 +519,51 @@ public class NewJframecalc extends javax.swing.JFrame {
         screentext = String.valueOf(ans);
         screen.setText(screentext);// TODO add your handling code here:
     }//GEN-LAST:event_ANSActionPerformed
+    private void calc() {
+        if (num1.equals("")) {
+            if (screen.getText().equals(".")) {
+                num1 = "0";
+            } else {
+                num1 = screentext;
+            }
+            screentext = "";
+            screen.setText(screentext);
+        } else {
+            switch (op) {
+                case "+": {
+                    num2 = screen.getText();
+                    numb1 = Double.parseDouble(num1);
+                    numb2 = Double.parseDouble(num2);
+                    ans = numb1 + numb2;
+                    break;
+                }
+                case "-": {
+                    num2 = screen.getText();
+                    numb1 = Double.parseDouble(num1);
+                    numb2 = Double.parseDouble(num2);
+                    ans = numb1 - numb2;
+                    break;
+                }
+                case "/": {
+                    num2 = screen.getText();
+                    numb1 = Double.parseDouble(num1);
+                    numb2 = Double.parseDouble(num2);
+                    ans = numb1 / numb2;
+                    break;
+                }
+                case "*": {
+                    num2 = screen.getText();
+                    numb1 = Double.parseDouble(num1);
+                    numb2 = Double.parseDouble(num2);
+                    ans = numb1 * numb2;
+                    break;
+                }
+            }
+            num1 = String.valueOf(ans);
+            screen.setText(String.valueOf(ans));
+            screentext = "";
+        }
+    }
 
     /**
      * @param args the command line arguments
