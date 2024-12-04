@@ -28,6 +28,7 @@ public class NewJframecalc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         screen = new javax.swing.JLabel();
         AC = new javax.swing.JButton();
         ANS = new javax.swing.JButton();
@@ -342,6 +343,7 @@ public class NewJframecalc extends javax.swing.JFrame {
         getContentPane().add(ZERO, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 375, 75, 75));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     String screentext = "";
     String num1 = "";
@@ -432,46 +434,7 @@ public class NewJframecalc extends javax.swing.JFrame {
             ans = numb1;
             screen.setText(num1);
         } else {
-            if (num1.equals("")) {
-                num1 = screentext;
-                screentext = "";
-                screen.setText(num1);
-            } else {
-                switch (op) {
-                    case "+": {
-                        num2 = screen.getText();
-                        numb1 = Double.parseDouble(num1);
-                        numb2 = Double.parseDouble(num2);
-                        ans = numb1 + numb2;
-                        break;
-                    }
-                    case "-": {
-                        num2 = screen.getText();
-                        numb1 = Double.parseDouble(num1);
-                        numb2 = Double.parseDouble(num2);
-                        ans = numb1 - numb2;
-                        break;
-                    }
-                    case "/": {
-                        num2 = screen.getText();
-                        numb1 = Double.parseDouble(num1);
-                        numb2 = Double.parseDouble(num2);
-                        ans = numb1 / numb2;
-                        break;
-                    }
-                    case "*": {
-                        num2 = screen.getText();
-                        numb1 = Double.parseDouble(num1);
-                        numb2 = Double.parseDouble(num2);
-                        ans = numb1 * numb2;
-                        break;
-                    }
-                }
-                num1 = String.valueOf(ans);
-                screen.setText(String.valueOf(ans));
-                screentext = "";
-
-            }
+            calc();
         }
         op = "";     // TODO add your handling code here:
     }//GEN-LAST:event_EQUALSActionPerformed
@@ -482,7 +445,7 @@ public class NewJframecalc extends javax.swing.JFrame {
     }//GEN-LAST:event_ADDActionPerformed
 
     private void MINUSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MINUSActionPerformed
-calc();
+        calc();
         op = "-";
     }//GEN-LAST:event_MINUSActionPerformed
 
@@ -490,29 +453,34 @@ calc();
         if (screentext != null && !screentext.isEmpty()) {
             // Check if the last character is a decimal point
             if (screentext.endsWith(".")) {
-                haspoint = false;
+                haspoint = false; // Reset haspoint when the last character is removed and it’s a decimal
             }
+            // Remove the last character
             screentext = screentext.substring(0, screentext.length() - 1);
             screen.setText(screentext);
+
+            // Update haspoint to reflect if a decimal point still exists in screentext
+            haspoint = screentext.contains(".");
         } else {
             JOptionPane.showMessageDialog(rootPane, "No characters left to delete");
-        }       // TODO add your handling code here:
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_BSActionPerformed
 
     private void PRODUCTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRODUCTActionPerformed
-calc();
+        calc();
         op = "*";        // TODO add your handling code here:
     }//GEN-LAST:event_PRODUCTActionPerformed
 
     private void DIVIDEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DIVIDEActionPerformed
-calc();
+        calc();
         op = "/";        // TODO add your handling code here:
     }//GEN-LAST:event_DIVIDEActionPerformed
 
     private void ACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACActionPerformed
         screentext = "";
         screen.setText(screentext);
-        num1 = "";// TODO add your handling code here:
+        num1 = "";
+        haspoint = false;// TODO add your handling code here:
     }//GEN-LAST:event_ACActionPerformed
 
     private void ANSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANSActionPerformed
@@ -548,7 +516,14 @@ calc();
                     num2 = screen.getText();
                     numb1 = Double.parseDouble(num1);
                     numb2 = Double.parseDouble(num2);
-                    ans = numb1 / numb2;
+                    if (numb2 == 0) {
+                        JOptionPane.showMessageDialog(rootPane, "Error: Division by zero is not allowed.");
+                        num1 = ""; // Reset num1
+                        screentext = ""; // Clear screentext
+                        screen.setText(""); // Clear the screen
+                    } else {
+                        ans = numb1 / numb2;
+                    }
                     break;
                 }
                 case "*": {
@@ -621,6 +596,7 @@ calc();
     private javax.swing.JButton THREE;
     private javax.swing.JButton TWO;
     private javax.swing.JButton ZERO;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel screen;
     // End of variables declaration//GEN-END:variables
 }
